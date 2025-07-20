@@ -1,0 +1,70 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.16.1
+  name: sleeps.schedule.ktharatt.io
+spec:
+  group: schedule.ktharatt.io
+  names:
+    kind: Sleep
+    listKind: SleepList
+    plural: sleeps
+    singular: sleep
+  scope: Namespaced
+  versions:
+    - name: v1alpha1
+      schema:
+        openAPIV3Schema:
+          description: Sleep is the Schema for the sleeps API
+          properties:
+            apiVersion:
+              description: |-
+                APIVersion defines the versioned schema of this representation of an object.
+                Servers should convert recognized schemas to the latest internal value, and
+                may reject unrecognized values.
+                More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+              type: string
+            kind:
+              description: |-
+                Kind is a string value representing the REST resource this object represents.
+                Servers may infer this from the endpoint the client submits requests to.
+                Cannot be updated.
+                In CamelCase.
+                More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+              type: string
+            metadata:
+              type: object
+            spec:
+              description: SleepSpec defines the desired state of Sleep
+              properties:
+                duration:
+                  format: int64
+                  maximum: 23
+                  minimum: 1
+                  type: integer
+                nodepools:
+                  description: NodePools is the list of NodePools to be drained
+                  items:
+                    type: string
+                  type: array
+                schedule:
+                  pattern: ^((\*|[0-5]?\d)(/\d+)?)(,(\*|[0-5]?\d)(/\d+)?)* ((\*|[01]?\d|2[0-3])(/\d+)?)(,(\*|[01]?\d|2[0-3])(/\d+)?)*
+                    ((\*|0?[1-9]|[12]\d|3[01])(/\d+)?)(,(\*|0?[1-9]|[12]\d|3[01])(/\d+)?)*
+                    ((\*|0?[1-9]|1[0-2])(/\d+)?)(,(\*|0?[1-9]|1[0-2])(/\d+)?)* ((\*|[0-6])(/\d+)?)(,(\*|[0-6])(/\d+)?)*$
+                  type: string
+                timezone:
+                  default: UTC
+                  type: string
+              required:
+                - duration
+                - schedule
+              type: object
+            status:
+              description: SleepStatus defines the observed state of Sleep
+              type: object
+          type: object
+      served: true
+      storage: true
+      subresources:
+        status: {}

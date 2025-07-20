@@ -3,7 +3,17 @@ entries:
   ktharatt:
   - apiVersion: v2
     appVersion: beta-0.0.1
-    created: "2025-07-20T20:44:00.618456+05:30"
+    created: "2025-07-20T20:47:53.777789+05:30"
+    description: A Helm chart for Kubernetes Tharatt (Ktharatt)
+    digest: 48ecaeed1dd02bd15edd81156091d7c21cf9d2fa0938212e68b3f7947992b222
+    name: ktharatt
+    type: application
+    urls:
+    - https://riyasyash.github.io/ktharatt-charts/ktharatt-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: beta-0.0.1
+    created: "2025-07-20T20:47:53.777401+05:30"
     description: A Helm chart for Kubernetes Tharatt (Ktharatt)
     digest: 63c51a5e2418cd4178262a7cb37749b482b4aca05032458dd88f36bf66bdb678
     name: ktharatt
@@ -13,7 +23,7 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: beta-0.0.1
-    created: "2025-07-20T20:44:00.618824+05:30"
+    created: "2025-07-20T20:47:53.778282+05:30"
     description: A Helm chart for Kubernetes Tharatt (Ktharatt)
     digest: ea57522badd1770e5f09b971aa84eebeda00880d6e7e9b3c5a229fe36754e07c
     name: ktharatt
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://riyasyash.github.io/ktharatt-charts/charts/ktharatt-0.1.0.tgz
     version: 0.1.0
-generated: "2025-07-20T20:44:00.617832+05:30"
+generated: "2025-07-20T20:47:53.776695+05:30"
